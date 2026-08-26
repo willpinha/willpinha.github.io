@@ -69,6 +69,13 @@ func main() {
 		}
 	}
 
+	if err := os.RemoveAll(*outDir); err != nil {
+		log.Fatalf("clean %s: %v", *outDir, err)
+	}
+	if err := os.CopyFS(filepath.Join(*outDir, "assets"), os.DirFS("assets")); err != nil {
+		log.Fatalf("copy assets: %v", err)
+	}
+
 	now := time.Now()
 
 	pages := []page{

@@ -12,6 +12,16 @@
 		.container {
 			max-width: 700px;
 		}
+		.profile {
+			text-align: center;
+		}
+		.profile-photo {
+			width: 150px;
+			height: 150px;
+			object-fit: cover;
+			border-radius: 50%;
+			border: 2px solid var(--pico-muted-border-color);
+		}
 	</style>
 </head>
 <body>
@@ -30,6 +40,12 @@
 	</header>
 	<main class="container">
 		
+<section class="profile">
+	<img class="profile-photo" src="/assets/profile.png" alt="Willian Pinheiro">
+	<h1>Willian Pinheiro</h1>
+	<p>Software developer</p>
+</section>
+
 <section>
 	<h3>My most famous repositories</h3>
 	<ul>
@@ -71,9 +87,7 @@
 </section>
 
 <section>
-	<h3>
-		Latest issues I participated in [<a href="/issues/">see all</a>]
-	</h3>
+	<h3>Latest issues I participated in [<a href="/issues/">see all</a>]</h3>
 	<ul>
 		
 		<li><a href="https://github.com/willpinha/foo" target="_blank" rel="noopener noreferrer">willpinha/foo</a> • <a href="https://github.com/willpinha/foo/issues/12" target="_blank" rel="noopener noreferrer">#12 Some issue</a></li>
@@ -87,7 +101,8 @@
 
 <section>
 	<h3>
-		Latest discussions I participated in [<a href="/discussions/">see all</a>]
+		Latest discussions I participated in [<a href="/discussions/">see all</a
+		>]
 	</h3>
 	<ul>
 		
