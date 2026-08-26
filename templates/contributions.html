@@ -29,9 +29,17 @@
 			{{end}}
 		</svg>
 	</div>
+	<p>
+		Below are all the users and organizations I've contributed to. They are
+		ordered by total contributions; you can hover over each one to see the
+		total contributions
+	</p>
 	<div class="contributors">
 		{{range .Contributors}}
-		<a href="https://github.com/{{.Login}}" target="_blank" rel="noopener noreferrer"
+		<a
+			href="https://github.com/{{.Login}}"
+			target="_blank"
+			rel="noopener noreferrer"
 			><img
 				class="contributor-avatar"
 				src="{{.AvatarURL}}"
