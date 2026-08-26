@@ -6,6 +6,7 @@ import (
 	"html/template"
 	"io"
 	"slices"
+	"strings"
 	"time"
 )
 
@@ -84,6 +85,18 @@ type contributionGraph struct {
 	Height        int
 }
 
+type contributor struct {
+	Login     string
+	AvatarURL string
+	Count     int
+	Tooltip   string
+}
+
+type contributionsSection struct {
+	contributionGraph
+	Contributors []contributor
+}
+
 func buildContributionGraph(cal contributionCalendar) contributionGraph {
 	step := contribCellSize + contribCellGap
 
@@ -126,6 +139,47 @@ func buildContributionGraph(cal contributionCalendar) contributionGraph {
 	}
 }
 
+func buildContributors(pullRequests, issues, discussions []item) []contributor {
+	byLogin := make(map[string]*contributor)
+	var order []string
+	for _, items := range [][]item{pullRequests, issues, discussions} {
+		for _, it := range items {
+			if it.RepoOwnerLogin == login {
+				continue
+			}
+			c, ok := byLogin[it.RepoOwnerLogin]
+			if !ok {
+				c = &contributor{Login: it.RepoOwnerLogin, AvatarURL: it.RepoOwnerAvatarURL}
+				byLogin[it.RepoOwnerLogin] = c
+				order = append(order, it.RepoOwnerLogin)
+			}
+			c.Count++
+		}
+	}
+
+	contributors := make([]contributor, 0, len(order))
+	for _, l := range order {
+		c := *byLogin[l]
+		c.Tooltip = contributorTooltip(c)
+		contributors = append(contributors, c)
+	}
+	slices.SortFunc(contributors, func(a, b contributor) int {
+		if a.Count != b.Count {
+			return b.Count - a.Count
+		}
+		return strings.Compare(a.Login, b.Login)
+	})
+	return contributors
+}
+
+func contributorTooltip(c contributor) string {
+	count := "1 contribution"
+	if c.Count != 1 {
+		count = fmt.Sprintf("%d contributions", c.Count)
+	}
+	return fmt.Sprintf("%s (%s)", c.Login, count)
+}
+
 func contributionTooltip(day contributionDay) string {
 	count := "No contributions"
 	switch day.Count {
@@ -147,15 +201,18 @@ func renderHome(w io.Writer, now time.Time, repos []repo, pullRequests, issues, 
 		PullRequests  []item
 		Issues        []item
 		Discussions   []item
-		Contributions contributionGraph
+		Contributions contributionsSection
 	}{
-		Title:         siteTitle,
-		UpdatedAt:     now.UTC().Format(timeFormat),
-		Repos:         repos,
-		PullRequests:  pullRequests[:min(len(pullRequests), sectionItemLimit)],
-		Issues:        issues[:min(len(issues), sectionItemLimit)],
-		Discussions:   discussions[:min(len(discussions), sectionItemLimit)],
-		Contributions: buildContributionGraph(calendar),
+		Title:        siteTitle,
+		UpdatedAt:    now.UTC().Format(timeFormat),
+		Repos:        repos,
+		PullRequests: pullRequests[:min(len(pullRequests), sectionItemLimit)],
+		Issues:       issues[:min(len(issues), sectionItemLimit)],
+		Discussions:  discussions[:min(len(discussions), sectionItemLimit)],
+		Contributions: contributionsSection{
+			contributionGraph: buildContributionGraph(calendar),
+			Contributors:      buildContributors(pullRequests, issues, discussions),
+		},
 	}
 	return tmpl.ExecuteTemplate(w, "layout", data)
 }

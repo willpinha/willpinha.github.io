@@ -29,5 +29,17 @@
 			{{end}}
 		</svg>
 	</div>
+	<div class="contributors">
+		{{range .Contributors}}
+		<a href="https://github.com/{{.Login}}" target="_blank" rel="noopener noreferrer"
+			><img
+				class="contributor-avatar"
+				src="{{.AvatarURL}}"
+				alt="{{.Login}}"
+				title="{{.Tooltip}}"
+				loading="lazy"
+		/></a>
+		{{end}}
+	</div>
 </section>
 {{end}}

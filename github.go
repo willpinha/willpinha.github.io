@@ -53,7 +53,7 @@ query ($search: String!, $cursor: String) {
 					isPrivate
 					owner {
 						login
-						avatarUrl(size: 40)
+						avatarUrl(size: 64)
 					}
 				}
 			}
@@ -69,7 +69,7 @@ query ($search: String!, $cursor: String) {
 					isPrivate
 					owner {
 						login
-						avatarUrl(size: 40)
+						avatarUrl(size: 64)
 					}
 				}
 			}
@@ -114,7 +114,7 @@ query ($search: String!, $cursor: String) {
 					isPrivate
 					owner {
 						login
-						avatarUrl(size: 40)
+						avatarUrl(size: 64)
 					}
 				}
 			}

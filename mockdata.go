@@ -57,7 +57,7 @@ var mockPullRequests = []item{
 		RepoName:           "linux/hello",
 		RepoURL:            "https://github.com/linux/hello",
 		RepoOwnerLogin:     "torvalds",
-		RepoOwnerAvatarURL: "https://avatars.githubusercontent.com/u/1024025?s=40&v=4",
+		RepoOwnerAvatarURL: "https://avatars.githubusercontent.com/u/1024025?s=64&v=4",
 	},
 	{
 		Number:             124,
@@ -68,7 +68,7 @@ var mockPullRequests = []item{
 		RepoName:           "linux/world",
 		RepoURL:            "https://github.com/linux/world",
 		RepoOwnerLogin:     "torvalds",
-		RepoOwnerAvatarURL: "https://avatars.githubusercontent.com/u/1024025?s=40&v=4",
+		RepoOwnerAvatarURL: "https://avatars.githubusercontent.com/u/1024025?s=64&v=4",
 	},
 	{
 		Number:             14,
@@ -79,7 +79,7 @@ var mockPullRequests = []item{
 		RepoName:           "go/wails",
 		RepoURL:            "https://github.com/go/wails",
 		RepoOwnerLogin:     "golang",
-		RepoOwnerAvatarURL: "https://avatars.githubusercontent.com/u/4314092?s=40&v=4",
+		RepoOwnerAvatarURL: "https://avatars.githubusercontent.com/u/4314092?s=64&v=4",
 	},
 	{
 		Number:             99,
@@ -90,7 +90,7 @@ var mockPullRequests = []item{
 		RepoName:           "go/wails",
 		RepoURL:            "https://github.com/go/wails",
 		RepoOwnerLogin:     "golang",
-		RepoOwnerAvatarURL: "https://avatars.githubusercontent.com/u/4314092?s=40&v=4",
+		RepoOwnerAvatarURL: "https://avatars.githubusercontent.com/u/4314092?s=64&v=4",
 	},
 	{
 		Number:             50,
@@ -101,7 +101,7 @@ var mockPullRequests = []item{
 		RepoName:           "linux/hello",
 		RepoURL:            "https://github.com/linux/hello",
 		RepoOwnerLogin:     "torvalds",
-		RepoOwnerAvatarURL: "https://avatars.githubusercontent.com/u/1024025?s=40&v=4",
+		RepoOwnerAvatarURL: "https://avatars.githubusercontent.com/u/1024025?s=64&v=4",
 	},
 	{
 		Number:             7,
@@ -112,7 +112,7 @@ var mockPullRequests = []item{
 		RepoName:           "linux/world",
 		RepoURL:            "https://github.com/linux/world",
 		RepoOwnerLogin:     "torvalds",
-		RepoOwnerAvatarURL: "https://avatars.githubusercontent.com/u/1024025?s=40&v=4",
+		RepoOwnerAvatarURL: "https://avatars.githubusercontent.com/u/1024025?s=64&v=4",
 	},
 }
 
@@ -126,7 +126,7 @@ var mockIssues = []item{
 		RepoName:           "willpinha/foo",
 		RepoURL:            "https://github.com/willpinha/foo",
 		RepoOwnerLogin:     "willpinha",
-		RepoOwnerAvatarURL: "https://avatars.githubusercontent.com/u/86596621?s=40&v=4",
+		RepoOwnerAvatarURL: "https://avatars.githubusercontent.com/u/86596621?s=64&v=4",
 	},
 	{
 		Number:             80,
@@ -136,7 +136,7 @@ var mockIssues = []item{
 		RepoName:           "linux/hello",
 		RepoURL:            "https://github.com/linux/hello",
 		RepoOwnerLogin:     "torvalds",
-		RepoOwnerAvatarURL: "https://avatars.githubusercontent.com/u/1024025?s=40&v=4",
+		RepoOwnerAvatarURL: "https://avatars.githubusercontent.com/u/1024025?s=64&v=4",
 	},
 	{
 		Number:             33,
@@ -146,7 +146,7 @@ var mockIssues = []item{
 		RepoName:           "willpinha/foo",
 		RepoURL:            "https://github.com/willpinha/foo",
 		RepoOwnerLogin:     "willpinha",
-		RepoOwnerAvatarURL: "https://avatars.githubusercontent.com/u/86596621?s=40&v=4",
+		RepoOwnerAvatarURL: "https://avatars.githubusercontent.com/u/86596621?s=64&v=4",
 	},
 }
 
@@ -159,6 +159,6 @@ var mockDiscussions = []item{
 		RepoName:           "willpinha/bar",
 		RepoURL:            "https://github.com/willpinha/bar",
 		RepoOwnerLogin:     "willpinha",
-		RepoOwnerAvatarURL: "https://avatars.githubusercontent.com/u/86596621?s=40&v=4",
+		RepoOwnerAvatarURL: "https://avatars.githubusercontent.com/u/86596621?s=64&v=4",
 	},
 }
