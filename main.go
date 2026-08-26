@@ -22,30 +22,51 @@ type page struct {
 
 func main() {
 	outDir := flag.String("out", "dist", "path to the build output directory")
+	server := flag.Bool("server", false, "serve the build output directory instead of generating it")
+	port := flag.Int("port", 8080, "port to listen on when -server is set")
+	mock := flag.Bool("mock", false, "generate the site with mock data instead of querying the GitHub API")
 	flag.Parse()
 
-	token := os.Getenv("GITHUB_TOKEN")
-	if token == "" {
-		log.Fatal("GITHUB_TOKEN environment variable is not set")
+	if *server {
+		if err := runServer(*outDir, *port); err != nil {
+			log.Fatalf("serve %s: %v", *outDir, err)
+		}
+		return
 	}
 
-	client := newClient(token)
+	var repos []repo
+	var pullRequests, issues, discussions []item
 
-	repos, err := client.famousRepos()
-	if err != nil {
-		log.Fatalf("fetch repositories: %v", err)
-	}
-	pullRequests, err := client.createdPullRequests()
-	if err != nil {
-		log.Fatalf("fetch pull requests: %v", err)
-	}
-	issues, err := client.participatedIssues()
-	if err != nil {
-		log.Fatalf("fetch issues: %v", err)
-	}
-	discussions, err := client.participatedDiscussions()
-	if err != nil {
-		log.Fatalf("fetch discussions: %v", err)
+	if *mock {
+		repos = mockRepos
+		pullRequests = mockPullRequests
+		issues = mockIssues
+		discussions = mockDiscussions
+	} else {
+		token := os.Getenv("GITHUB_TOKEN")
+		if token == "" {
+			log.Fatal("GITHUB_TOKEN environment variable is not set")
+		}
+
+		client := newClient(token)
+
+		var err error
+		repos, err = client.famousRepos()
+		if err != nil {
+			log.Fatalf("fetch repositories: %v", err)
+		}
+		pullRequests, err = client.createdPullRequests()
+		if err != nil {
+			log.Fatalf("fetch pull requests: %v", err)
+		}
+		issues, err = client.participatedIssues()
+		if err != nil {
+			log.Fatalf("fetch issues: %v", err)
+		}
+		discussions, err = client.participatedDiscussions()
+		if err != nil {
+			log.Fatalf("fetch discussions: %v", err)
+		}
 	}
 
 	now := time.Now()

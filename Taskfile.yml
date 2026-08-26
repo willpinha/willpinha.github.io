@@ -13,3 +13,8 @@ tasks:
     deps: [clean]
     cmds:
       - GITHUB_TOKEN="${GITHUB_TOKEN:-$(gh auth token)}" go run . -out dist
+
+  dev:
+    desc: Rebuild with mock data and serve on change using air
+    cmds:
+      - go tool air
