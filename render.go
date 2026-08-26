@@ -233,6 +233,18 @@ func renderSeeAll(w io.Writer, now time.Time, pageTitle string, items []item) er
 	return tmpl.ExecuteTemplate(w, "layout", data)
 }
 
+func renderAbout(w io.Writer, now time.Time) error {
+	tmpl := template.Must(template.ParseFS(templatesFS, "templates/layout.html", "templates/about.html"))
+	data := struct {
+		Title     string
+		UpdatedAt string
+	}{
+		Title:     siteTitle + " - About this website",
+		UpdatedAt: now.UTC().Format(timeFormat),
+	}
+	return tmpl.ExecuteTemplate(w, "layout", data)
+}
+
 func groupByYear(items []item) []yearGroup {
 	sorted := slices.Clone(items)
 	slices.SortFunc(sorted, func(a, b item) int {

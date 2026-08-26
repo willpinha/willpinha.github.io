@@ -109,6 +109,12 @@ func main() {
 				return renderSeeAll(w, now, "Discussions I participated in", discussions)
 			},
 		},
+		{
+			path: filepath.Join("about", "index.html"),
+			render: func(w io.Writer) error {
+				return renderAbout(w, now)
+			},
+		},
 	}
 
 	for _, p := range pages {

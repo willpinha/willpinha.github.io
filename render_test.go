@@ -52,6 +52,15 @@ func TestRenderSeeAll(t *testing.T) {
 	}
 }
 
+func TestRenderAbout(t *testing.T) {
+	now := time.Date(2026, 7, 13, 13, 27, 0, 0, time.UTC)
+	var buf bytes.Buffer
+	if err := renderAbout(&buf, now); err != nil {
+		t.Fatal(err)
+	}
+	assertGolden(t, "about.golden.html", buf.String())
+}
+
 func assertGolden(t *testing.T, name, got string) {
 	t.Helper()
 	path := filepath.Join("testdata", name)
