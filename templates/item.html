@@ -7,16 +7,11 @@
 		src="{{.RepoOwnerAvatarURL}}"
 		alt="{{.RepoOwnerLogin}}"
 		loading="lazy"
-	/></a
->
-<a
-	href="{{.RepoURL}}"
-	target="_blank"
-	rel="noopener noreferrer"
+/></a>
+<a href="{{.RepoURL}}" target="_blank" rel="noopener noreferrer"
 	>{{.RepoName}}</a
->
-•
+>,
 <a href="{{.URL}}" target="_blank" rel="noopener noreferrer"
-	>#{{.Number}} {{.Title}}</a
->{{if .State}} ({{if eq .State "merged"}}✔{{else if eq .State "closed"}}✘{{else
-if eq .State "open"}}⯃{{end}} {{.State}}){{end}}{{end}}
+	><code class="item-number">#{{.Number}}</code> {{.Title}}</a
+>{{if .State}} {{if eq .State "merged"}}✔{{else if eq .State "closed"}}✘{{else
+if eq .State "open"}}⯃{{end}} {{.State}}{{end}}{{end}}

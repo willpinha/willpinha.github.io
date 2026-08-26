@@ -41,8 +41,8 @@ func mockContributionLevel(count int) int {
 }
 
 var mockRepos = []repo{
-	{Name: "willpinha/daisy-components", URL: "https://github.com/willpinha/daisy-components", Stars: 437},
-	{Name: "willpinha/mantine-themes", URL: "https://github.com/willpinha/mantine-themes", Stars: 27},
+	{Name: "daisy-components", URL: "https://github.com/willpinha/daisy-components", Stars: 437},
+	{Name: "mantine-themes", URL: "https://github.com/willpinha/mantine-themes", Stars: 27},
 }
 
 // Sorted by creation date descending, as returned by the API.

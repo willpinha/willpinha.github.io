@@ -149,7 +149,7 @@ func (c *client) famousRepos() ([]repo, error) {
 		if n.IsPrivate {
 			continue
 		}
-		repos = append(repos, repo{Name: n.NameWithOwner, URL: n.URL, Stars: n.StargazerCount})
+		repos = append(repos, repo{Name: strings.TrimPrefix(n.NameWithOwner, login+"/"), URL: n.URL, Stars: n.StargazerCount})
 	}
 	return repos, nil
 }
