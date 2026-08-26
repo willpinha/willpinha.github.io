@@ -1,1 +1,1 @@
-{{define "item"}}<a href="{{.RepoURL}}">{{.RepoName}}</a> • <a href="{{.URL}}">#{{.Number}} {{.Title}}</a>{{if .State}} ({{.State}}){{end}}{{end}}
+{{define "item"}}<a href="{{.RepoURL}}" target="_blank" rel="noopener noreferrer">{{.RepoName}}</a> • <a href="{{.URL}}" target="_blank" rel="noopener noreferrer">#{{.Number}} {{.Title}}</a>{{if .State}} ({{.State}}){{end}}{{end}}

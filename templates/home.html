@@ -2,31 +2,39 @@
 <section>
 	<h2>My most famous repositories</h2>
 	<ul>
-		{{range .Repos}}<li><a href="{{.URL}}">{{.Name}}</a> ({{.Stars}} stars)</li>
+		{{range .Repos}}
+		<li><a href="{{.URL}}" target="_blank" rel="noopener noreferrer">{{.Name}}</a> ({{.Stars}} stars)</li>
 		{{end}}
 	</ul>
 </section>
 
 <section>
-	<h2>Latest pull requests I created <a href="/pull-requests/">see all</a></h2>
+	<h2>
+		Latest pull requests I created [<a href="/pull-requests/" target="_blank" rel="noopener noreferrer">see all</a>]
+	</h2>
 	<ul>
-		{{range .PullRequests}}<li>{{template "item" .}}</li>
+		{{range .PullRequests}}
+		<li>{{template "item" .}}</li>
 		{{end}}
 	</ul>
 </section>
 
 <section>
-	<h2>Latest issues I participated in <a href="/issues/">see all</a></h2>
+	<h2>Latest issues I participated in [<a href="/issues/" target="_blank" rel="noopener noreferrer">see all</a>]</h2>
 	<ul>
-		{{range .Issues}}<li>{{template "item" .}}</li>
+		{{range .Issues}}
+		<li>{{template "item" .}}</li>
 		{{end}}
 	</ul>
 </section>
 
 <section>
-	<h2>Latest discussions I participated in <a href="/discussions/">see all</a></h2>
+	<h2>
+		Latest discussions I participated in [<a href="/discussions/" target="_blank" rel="noopener noreferrer">see all</a>]
+	</h2>
 	<ul>
-		{{range .Discussions}}<li>{{template "item" .}}</li>
+		{{range .Discussions}}
+		<li>{{template "item" .}}</li>
 		{{end}}
 	</ul>
 </section>
