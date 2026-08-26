@@ -1,36 +1,43 @@
-{{define "layout"}}<!DOCTYPE html>
+{{define "layout"}}<!doctype html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{{.Title}}</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-	<style>
-		:root {
-			--pico-spacing: 0.75rem;
-		}
-		.container {
-			max-width: 700px;
-		}
-		.profile {
-			text-align: center;
-		}
-		.profile-photo {
-			width: 150px;
-			height: 150px;
-			object-fit: cover;
-			border-radius: 50%;
-			border: 2px solid var(--pico-muted-border-color);
-		}
-	</style>
-</head>
-<body>
-	<main class="container">
-		{{template "content" .}}
-	</main>
-	<footer class="container">
-		<small>The information above is updated daily. Last updated at {{.UpdatedAt}} UTC</small>
-	</footer>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{{.Title}}</title>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+		/>
+		<style>
+			:root {
+				--pico-spacing: 0.75rem;
+			}
+			.container {
+				max-width: 700px;
+			}
+			.profile {
+				text-align: center;
+			}
+			.profile-photo {
+				width: 150px;
+				height: 150px;
+				object-fit: cover;
+				border-radius: 50%;
+				border: 2px solid var(--pico-muted-border-color);
+			}
+			.updated-at {
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<p class="container updated-at">
+			<small
+				>The information below is updated daily. Last updated at
+				<b>{{.UpdatedAt}} UTC</b></small
+			>
+		</p>
+		<main class="container">{{template "content" .}}</main>
+	</body>
 </html>
 {{end}}
