@@ -51,6 +51,10 @@ query ($search: String!, $cursor: String) {
 					nameWithOwner
 					url
 					isPrivate
+					owner {
+						login
+						avatarUrl(size: 40)
+					}
 				}
 			}
 			... on PullRequest {
@@ -63,6 +67,10 @@ query ($search: String!, $cursor: String) {
 					nameWithOwner
 					url
 					isPrivate
+					owner {
+						login
+						avatarUrl(size: 40)
+					}
 				}
 			}
 		}
@@ -104,6 +112,10 @@ query ($search: String!, $cursor: String) {
 					nameWithOwner
 					url
 					isPrivate
+					owner {
+						login
+						avatarUrl(size: 40)
+					}
 				}
 			}
 		}
@@ -225,13 +237,15 @@ func (c *client) searchItems(query, search string) ([]item, error) {
 			continue
 		}
 		items = append(items, item{
-			Number:    n.Number,
-			Title:     n.Title,
-			URL:       n.URL,
-			State:     strings.ToLower(n.State),
-			CreatedAt: n.CreatedAt,
-			RepoName:  n.Repository.NameWithOwner,
-			RepoURL:   n.Repository.URL,
+			Number:             n.Number,
+			Title:              n.Title,
+			URL:                n.URL,
+			State:              strings.ToLower(n.State),
+			CreatedAt:          n.CreatedAt,
+			RepoName:           n.Repository.NameWithOwner,
+			RepoURL:            n.Repository.URL,
+			RepoOwnerLogin:     n.Repository.Owner.Login,
+			RepoOwnerAvatarURL: n.Repository.Owner.AvatarURL,
 		})
 	}
 	return items, nil
@@ -259,6 +273,10 @@ type itemNode struct {
 		NameWithOwner string `json:"nameWithOwner"`
 		URL           string `json:"url"`
 		IsPrivate     bool   `json:"isPrivate"`
+		Owner         struct {
+			Login     string `json:"login"`
+			AvatarURL string `json:"avatarUrl"`
+		} `json:"owner"`
 	} `json:"repository"`
 }
 

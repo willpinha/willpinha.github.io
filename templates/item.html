@@ -1,4 +1,15 @@
 {{define "item"}}<a
+	href="https://github.com/{{.RepoOwnerLogin}}"
+	target="_blank"
+	rel="noopener noreferrer"
+	><img
+		class="item-avatar"
+		src="{{.RepoOwnerAvatarURL}}"
+		alt="{{.RepoOwnerLogin}}"
+		loading="lazy"
+	/></a
+>
+<a
 	href="{{.RepoURL}}"
 	target="_blank"
 	rel="noopener noreferrer"

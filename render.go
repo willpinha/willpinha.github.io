@@ -24,13 +24,15 @@ type repo struct {
 }
 
 type item struct {
-	Number    int
-	Title     string
-	URL       string
-	State     string
-	CreatedAt time.Time
-	RepoName  string
-	RepoURL   string
+	Number             int
+	Title              string
+	URL                string
+	State              string
+	CreatedAt          time.Time
+	RepoName           string
+	RepoURL            string
+	RepoOwnerLogin     string
+	RepoOwnerAvatarURL string
 }
 
 type yearGroup struct {
