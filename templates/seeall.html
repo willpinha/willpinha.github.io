@@ -1,10 +1,11 @@
 {{define "content"}}
-<h1>{{.PageTitle}}</h1>
+<p><a href="/">← Back to home</a></p>
+<h3>{{.PageTitle}}</h3>
 {{range .Groups}}
-<h2>{{.Year}}</h2>
+<h4>{{.Year}}</h4>
 <ul>
-	{{range .Items}}<li>{{template "item" .}}</li>
+	{{range .Items}}
+	<li>{{template "item" .}}</li>
 	{{end}}
 </ul>
-{{end}}
-{{end}}
+{{end}} {{end}}
