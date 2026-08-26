@@ -69,6 +69,24 @@ query ($search: String!, $cursor: String) {
 	}
 }`
 
+const contributionCalendarQuery = `
+query ($login: String!) {
+	user(login: $login) {
+		contributionsCollection {
+			contributionCalendar {
+				totalContributions
+				weeks {
+					contributionDays {
+						date
+						contributionCount
+						contributionLevel
+					}
+				}
+			}
+		}
+	}
+}`
+
 const discussionSearchQuery = `
 query ($search: String!, $cursor: String) {
 	search(type: DISCUSSION, first: 100, query: $search, after: $cursor) {
@@ -137,6 +155,62 @@ func (c *client) participatedIssues() ([]item, error) {
 func (c *client) participatedDiscussions() ([]item, error) {
 	search := fmt.Sprintf("involves:%s sort:updated-desc", login)
 	return c.searchItems(discussionSearchQuery, search)
+}
+
+func (c *client) contributionCalendar() (contributionCalendar, error) {
+	var result struct {
+		User struct {
+			ContributionsCollection struct {
+				ContributionCalendar struct {
+					TotalContributions int `json:"totalContributions"`
+					Weeks              []struct {
+						ContributionDays []struct {
+							Date              string `json:"date"`
+							ContributionCount int    `json:"contributionCount"`
+							ContributionLevel string `json:"contributionLevel"`
+						} `json:"contributionDays"`
+					} `json:"weeks"`
+				} `json:"contributionCalendar"`
+			} `json:"contributionsCollection"`
+		} `json:"user"`
+	}
+	if err := c.query(contributionCalendarQuery, map[string]any{"login": login}, &result); err != nil {
+		return contributionCalendar{}, err
+	}
+
+	cal := result.User.ContributionsCollection.ContributionCalendar
+	weeks := make([][]contributionDay, 0, len(cal.Weeks))
+	for _, w := range cal.Weeks {
+		days := make([]contributionDay, 0, len(w.ContributionDays))
+		for _, d := range w.ContributionDays {
+			date, err := time.Parse("2006-01-02", d.Date)
+			if err != nil {
+				return contributionCalendar{}, fmt.Errorf("parse contribution date %q: %w", d.Date, err)
+			}
+			days = append(days, contributionDay{
+				Date:  date,
+				Count: d.ContributionCount,
+				Level: contributionLevelFromString(d.ContributionLevel),
+			})
+		}
+		weeks = append(weeks, days)
+	}
+	return contributionCalendar{Total: cal.TotalContributions, Weeks: weeks}, nil
+}
+
+func contributionLevelFromString(level string) int {
+	switch level {
+	case "FIRST_QUARTILE":
+		return 1
+	case "SECOND_QUARTILE":
+		return 2
+	case "THIRD_QUARTILE":
+		return 3
+	case "FOURTH_QUARTILE":
+		return 4
+	default:
+		return 0
+	}
 }
 
 func (c *client) searchItems(query, search string) ([]item, error) {

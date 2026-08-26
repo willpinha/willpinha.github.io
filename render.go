@@ -2,6 +2,7 @@ package main
 
 import (
 	"embed"
+	"fmt"
 	"html/template"
 	"io"
 	"slices"
@@ -37,22 +38,122 @@ type yearGroup struct {
 	Items []item
 }
 
-func renderHome(w io.Writer, now time.Time, repos []repo, pullRequests, issues, discussions []item) error {
-	tmpl := template.Must(template.ParseFS(templatesFS, "templates/layout.html", "templates/item.html", "templates/home.html"))
+type contributionDay struct {
+	Date  time.Time
+	Count int
+	Level int
+}
+
+type contributionCalendar struct {
+	Total int
+	Weeks [][]contributionDay
+}
+
+const (
+	contribCellSize = 9
+	contribCellGap  = 3
+	contribLeftPad  = 24
+	contribTopPad   = 16
+)
+
+type contributionCell struct {
+	X       int
+	Y       int
+	Level   int
+	Tooltip string
+}
+
+type contributionMonthLabel struct {
+	X     int
+	Label string
+}
+
+type contributionWeekdayLabel struct {
+	Y     int
+	Label string
+}
+
+type contributionGraph struct {
+	Cells         []contributionCell
+	MonthLabels   []contributionMonthLabel
+	WeekdayLabels []contributionWeekdayLabel
+	Total         int
+	Width         int
+	Height        int
+}
+
+func buildContributionGraph(cal contributionCalendar) contributionGraph {
+	step := contribCellSize + contribCellGap
+
+	var cells []contributionCell
+	var monthLabels []contributionMonthLabel
+	lastMonth := time.Month(0)
+
+	for weekIndex, week := range cal.Weeks {
+		x := contribLeftPad + weekIndex*step
+		if len(week) > 0 {
+			if month := week[0].Date.Month(); month != lastMonth {
+				monthLabels = append(monthLabels, contributionMonthLabel{X: x, Label: week[0].Date.Format("Jan")})
+				lastMonth = month
+			}
+		}
+		for _, day := range week {
+			y := contribTopPad + int(day.Date.Weekday())*step
+			cells = append(cells, contributionCell{
+				X:       x,
+				Y:       y,
+				Level:   day.Level,
+				Tooltip: contributionTooltip(day),
+			})
+		}
+	}
+
+	weekdayLabels := []contributionWeekdayLabel{
+		{Y: contribTopPad + int(time.Monday)*step + contribCellSize, Label: "Mon"},
+		{Y: contribTopPad + int(time.Wednesday)*step + contribCellSize, Label: "Wed"},
+		{Y: contribTopPad + int(time.Friday)*step + contribCellSize, Label: "Fri"},
+	}
+
+	return contributionGraph{
+		Cells:         cells,
+		MonthLabels:   monthLabels,
+		WeekdayLabels: weekdayLabels,
+		Total:         cal.Total,
+		Width:         contribLeftPad + len(cal.Weeks)*step,
+		Height:        contribTopPad + 7*step,
+	}
+}
+
+func contributionTooltip(day contributionDay) string {
+	count := "No contributions"
+	switch day.Count {
+	case 0:
+	case 1:
+		count = "1 contribution"
+	default:
+		count = fmt.Sprintf("%d contributions", day.Count)
+	}
+	return fmt.Sprintf("%s on %s", count, day.Date.Format("Jan 2, 2006"))
+}
+
+func renderHome(w io.Writer, now time.Time, repos []repo, pullRequests, issues, discussions []item, calendar contributionCalendar) error {
+	tmpl := template.Must(template.ParseFS(templatesFS, "templates/layout.html", "templates/item.html", "templates/contributions.html", "templates/home.html"))
 	data := struct {
-		Title        string
-		UpdatedAt    string
-		Repos        []repo
-		PullRequests []item
-		Issues       []item
-		Discussions  []item
+		Title         string
+		UpdatedAt     string
+		Repos         []repo
+		PullRequests  []item
+		Issues        []item
+		Discussions   []item
+		Contributions contributionGraph
 	}{
-		Title:        siteTitle,
-		UpdatedAt:    now.UTC().Format(timeFormat),
-		Repos:        repos,
-		PullRequests: pullRequests[:min(len(pullRequests), sectionItemLimit)],
-		Issues:       issues[:min(len(issues), sectionItemLimit)],
-		Discussions:  discussions[:min(len(discussions), sectionItemLimit)],
+		Title:         siteTitle,
+		UpdatedAt:     now.UTC().Format(timeFormat),
+		Repos:         repos,
+		PullRequests:  pullRequests[:min(len(pullRequests), sectionItemLimit)],
+		Issues:        issues[:min(len(issues), sectionItemLimit)],
+		Discussions:   discussions[:min(len(discussions), sectionItemLimit)],
+		Contributions: buildContributionGraph(calendar),
 	}
 	return tmpl.ExecuteTemplate(w, "layout", data)
 }

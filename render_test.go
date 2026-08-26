@@ -14,7 +14,7 @@ var update = flag.Bool("update", false, "rewrite golden files with the current o
 func TestRenderHome(t *testing.T) {
 	now := time.Date(2026, 7, 13, 13, 27, 0, 0, time.UTC)
 	var buf bytes.Buffer
-	if err := renderHome(&buf, now, mockRepos, mockPullRequests, mockIssues, mockDiscussions); err != nil {
+	if err := renderHome(&buf, now, mockRepos, mockPullRequests, mockIssues, mockDiscussions, mockContributionCalendar(now)); err != nil {
 		t.Fatal(err)
 	}
 	assertGolden(t, "home.golden.html", buf.String())

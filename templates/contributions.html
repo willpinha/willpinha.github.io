@@ -1,0 +1,30 @@
+{{define "contributions"}}
+<section class="contributions">
+	<h3>Contributions</h3>
+	<p class="contributions-caption">
+		{{.Total}} contributions in the last year
+	</p>
+	<svg
+		viewBox="0 0 {{.Width}} {{.Height}}"
+		width="{{.Width}}"
+		height="{{.Height}}"
+	>
+		{{range .MonthLabels}}
+		<text x="{{.X}}" y="12" class="contrib-label">{{.Label}}</text>
+		{{end}} {{range .WeekdayLabels}}
+		<text x="0" y="{{.Y}}" class="contrib-label">{{.Label}}</text>
+		{{end}} {{range .Cells}}
+		<rect
+			x="{{.X}}"
+			y="{{.Y}}"
+			width="9"
+			height="9"
+			rx="2"
+			class="contrib-level-{{.Level}}"
+		>
+			<title>{{.Tooltip}}</title>
+		</rect>
+		{{end}}
+	</svg>
+</section>
+{{end}}

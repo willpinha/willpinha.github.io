@@ -2,6 +2,44 @@ package main
 
 import "time"
 
+func mockContributionCalendar(now time.Time) contributionCalendar {
+	end := now.UTC().Truncate(24 * time.Hour)
+	start := end.AddDate(-1, 0, -int(end.Weekday()))
+
+	var weeks [][]contributionDay
+	var week []contributionDay
+	total := 0
+	for d := start; !d.After(end); d = d.AddDate(0, 0, 1) {
+		count := (d.YearDay()*7 + int(d.Weekday())*3) % 12
+		total += count
+		week = append(week, contributionDay{Date: d, Count: count, Level: mockContributionLevel(count)})
+		if d.Weekday() == time.Saturday {
+			weeks = append(weeks, week)
+			week = nil
+		}
+	}
+	if len(week) > 0 {
+		weeks = append(weeks, week)
+	}
+
+	return contributionCalendar{Total: total, Weeks: weeks}
+}
+
+func mockContributionLevel(count int) int {
+	switch {
+	case count == 0:
+		return 0
+	case count <= 3:
+		return 1
+	case count <= 6:
+		return 2
+	case count <= 9:
+		return 3
+	default:
+		return 4
+	}
+}
+
 var mockRepos = []repo{
 	{Name: "willpinha/daisy-components", URL: "https://github.com/willpinha/daisy-components", Stars: 437},
 	{Name: "willpinha/mantine-themes", URL: "https://github.com/willpinha/mantine-themes", Stars: 27},

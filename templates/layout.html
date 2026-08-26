@@ -1,5 +1,5 @@
 {{define "layout"}}<!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -28,12 +28,41 @@
 			.updated-at {
 				text-align: center;
 			}
+			.contributions {
+				text-align: center;
+				overflow-x: auto;
+			}
+			.contributions svg {
+				margin: 0 auto;
+			}
+			.contributions-caption {
+				color: var(--pico-muted-color);
+			}
+			.contrib-label {
+				font-size: 9px;
+				fill: var(--pico-muted-color);
+			}
+			.contrib-level-0 {
+				fill: #161b22;
+			}
+			.contrib-level-1 {
+				fill: #0e4429;
+			}
+			.contrib-level-2 {
+				fill: #006d32;
+			}
+			.contrib-level-3 {
+				fill: #26a641;
+			}
+			.contrib-level-4 {
+				fill: #39d353;
+			}
 		</style>
 	</head>
 	<body>
 		<p class="container updated-at">
 			<small
-				>The information below is updated daily. Last updated at
+				>⟳ The information below is updated daily. Last updated at
 				<b>{{.UpdatedAt}} UTC</b></small
 			>
 		</p>

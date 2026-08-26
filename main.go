@@ -34,14 +34,18 @@ func main() {
 		return
 	}
 
+	now := time.Now()
+
 	var repos []repo
 	var pullRequests, issues, discussions []item
+	var calendar contributionCalendar
 
 	if *mock {
 		repos = mockRepos
 		pullRequests = mockPullRequests
 		issues = mockIssues
 		discussions = mockDiscussions
+		calendar = mockContributionCalendar(now)
 	} else {
 		token := os.Getenv("GITHUB_TOKEN")
 		if token == "" {
@@ -67,6 +71,10 @@ func main() {
 		if err != nil {
 			log.Fatalf("fetch discussions: %v", err)
 		}
+		calendar, err = client.contributionCalendar()
+		if err != nil {
+			log.Fatalf("fetch contribution calendar: %v", err)
+		}
 	}
 
 	if err := os.RemoveAll(*outDir); err != nil {
@@ -76,13 +84,11 @@ func main() {
 		log.Fatalf("copy assets: %v", err)
 	}
 
-	now := time.Now()
-
 	pages := []page{
 		{
 			path: "index.html",
 			render: func(w io.Writer) error {
-				return renderHome(w, now, repos, pullRequests, issues, discussions)
+				return renderHome(w, now, repos, pullRequests, issues, discussions, calendar)
 			},
 		},
 		{
