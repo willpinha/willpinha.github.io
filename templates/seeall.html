@@ -1,0 +1,10 @@
+{{define "content"}}
+<h1>{{.PageTitle}}</h1>
+{{range .Groups}}
+<h2>{{.Year}}</h2>
+<ul>
+	{{range .Items}}<li>{{template "item" .}}</li>
+	{{end}}
+</ul>
+{{end}}
+{{end}}
