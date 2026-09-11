@@ -221,7 +221,7 @@ exports[`renders / 1`] = `
 					<a href="/contributions/">Contributions</a>
 					<a href="https://github.com/willpinha" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
 					<a href="https://linkedin.com/in/willpinha" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-					<a href="https://willpinha.github.io/resume" target="_blank" rel="noopener noreferrer">Resume</a>
+					<a href="/willian-pinheiro-resume.pdf" target="_blank" rel="noopener noreferrer">Resume ↗</a>
 				</p>
 			</nav>
 		</header>
@@ -456,7 +456,7 @@ exports[`renders /blog/ 1`] = `
 					<a href="/contributions/">Contributions</a>
 					<a href="https://github.com/willpinha" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
 					<a href="https://linkedin.com/in/willpinha" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-					<a href="https://willpinha.github.io/resume" target="_blank" rel="noopener noreferrer">Resume</a>
+					<a href="/willian-pinheiro-resume.pdf" target="_blank" rel="noopener noreferrer">Resume ↗</a>
 				</p>
 			</nav>
 		</header>
@@ -698,7 +698,7 @@ exports[`renders /contributions/ 1`] = `
 					<a href="/contributions/">Contributions</a>
 					<a href="https://github.com/willpinha" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
 					<a href="https://linkedin.com/in/willpinha" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-					<a href="https://willpinha.github.io/resume" target="_blank" rel="noopener noreferrer">Resume</a>
+					<a href="/willian-pinheiro-resume.pdf" target="_blank" rel="noopener noreferrer">Resume ↗</a>
 				</p>
 			</nav>
 		</header>
@@ -2531,7 +2531,7 @@ exports[`renders /discussions/ 1`] = `
 					<a href="/contributions/">Contributions</a>
 					<a href="https://github.com/willpinha" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
 					<a href="https://linkedin.com/in/willpinha" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-					<a href="https://willpinha.github.io/resume" target="_blank" rel="noopener noreferrer">Resume</a>
+					<a href="/willian-pinheiro-resume.pdf" target="_blank" rel="noopener noreferrer">Resume ↗</a>
 				</p>
 			</nav>
 		</header>
@@ -2779,7 +2779,7 @@ exports[`renders /issues/ 1`] = `
 					<a href="/contributions/">Contributions</a>
 					<a href="https://github.com/willpinha" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
 					<a href="https://linkedin.com/in/willpinha" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-					<a href="https://willpinha.github.io/resume" target="_blank" rel="noopener noreferrer">Resume</a>
+					<a href="/willian-pinheiro-resume.pdf" target="_blank" rel="noopener noreferrer">Resume ↗</a>
 				</p>
 			</nav>
 		</header>
@@ -3045,7 +3045,7 @@ exports[`renders /pull-requests/ 1`] = `
 					<a href="/contributions/">Contributions</a>
 					<a href="https://github.com/willpinha" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
 					<a href="https://linkedin.com/in/willpinha" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-					<a href="https://willpinha.github.io/resume" target="_blank" rel="noopener noreferrer">Resume</a>
+					<a href="/willian-pinheiro-resume.pdf" target="_blank" rel="noopener noreferrer">Resume ↗</a>
 				</p>
 			</nav>
 		</header>
