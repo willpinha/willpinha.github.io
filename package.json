@@ -1,0 +1,15 @@
+{
+  "name": "my-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "npm run clean && GITHUB_TOKEN=\"${GITHUB_TOKEN:-$(gh auth token)}\" eleventy",
+    "clean": "rm -rf dist",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "vitest": "^5.0.0"
+  }
+}

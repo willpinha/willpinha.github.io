@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{% if pageTitle %}{{ site.title }} - {{ pageTitle }}{% else %}{{ site.title }}{% endif %}</title>
+		<link rel="icon" type="image/png" href="/assets/favicon.png" />
+		<style>
+			@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
+
+			:root {
+				--width: 720px;
+				--font-main: "Roboto Mono", monospace;
+				--font-scale: 0.9em;
+				--background-color: #fff;
+				--heading-color: #232333;
+				--text-color: #232333;
+				--link-color: #232333;
+				--main-color: #ff0000;
+				--code-background-color: #f2f2f2;
+				--code-color: #222;
+			}
+
+			body {
+				font-family: var(--font-main);
+				font-size: var(--font-scale);
+				margin: auto;
+				padding: 20px;
+				max-width: var(--width);
+				text-align: left;
+				background-color: var(--background-color);
+				word-wrap: break-word;
+				overflow-wrap: break-word;
+				line-height: 1.5;
+				color: var(--text-color);
+			}
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				color: var(--heading-color);
+			}
+
+			a {
+				color: var(--link-color);
+				cursor: pointer;
+				text-decoration: none;
+				border-bottom: 3px solid var(--main-color);
+			}
+
+			a:hover {
+				background-color: var(--main-color);
+				color: white;
+			}
+
+			header {
+				margin-bottom: 40px;
+				padding-bottom: 20px;
+				border-bottom: 3px dotted var(--heading-color);
+			}
+
+			.title h1 {
+				font-size: 1.5em;
+			}
+
+			nav a {
+				margin-right: 8px;
+			}
+
+			strong,
+			b {
+				color: var(--heading-color);
+			}
+
+			main {
+				line-height: 1.6;
+			}
+
+			img {
+				max-width: 100%;
+			}
+
+			code {
+				font-family: monospace;
+				padding: 2px;
+				background-color: var(--code-background-color);
+				color: var(--code-color);
+				border-radius: 3px;
+			}
+
+			footer {
+				margin-top: 40px;
+				border-top: 3px dotted var(--heading-color);
+				padding: 25px 0;
+				text-align: center;
+			}
+
+			.avatar-link {
+				border-bottom: none;
+			}
+
+			.avatar-link:hover {
+				background-color: transparent;
+			}
+
+			.item-avatar {
+				width: 20px;
+				height: 20px;
+				object-fit: cover;
+				border-radius: 50%;
+				vertical-align: middle;
+				margin-right: 0.25rem;
+			}
+
+			.item-number {
+				font-size: 0.75em;
+				padding: 0.05em 0.3em;
+			}
+
+			.contributions-graph {
+				overflow-x: auto;
+				margin-bottom: 0.75rem;
+			}
+
+			.contributions-graph svg {
+				display: block;
+				margin: 0 auto;
+			}
+
+			.contributors {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.4rem;
+				margin-top: 0.75rem;
+				margin-bottom: 1.5rem;
+			}
+
+			.contributor-avatar {
+				width: 32px;
+				height: 32px;
+				object-fit: cover;
+				border-radius: 50%;
+			}
+
+			.contrib-label {
+				font-size: 9px;
+				fill: var(--text-color);
+				opacity: 0.7;
+			}
+
+			.contrib-level-0 {
+				fill: #ebedf0;
+			}
+
+			.contrib-level-1 {
+				fill: #9be9a8;
+			}
+
+			.contrib-level-2 {
+				fill: #40c463;
+			}
+
+			.contrib-level-3 {
+				fill: #30a14e;
+			}
+
+			.contrib-level-4 {
+				fill: #216e39;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a class="title" href="/"><h1>{{ site.title }}</h1></a>
+			<nav>
+				<p>
+					<a href="/">Home</a>
+					<a href="/contributions/">Contributions</a>
+					<a href="https://github.com/{{ site.login }}" target="_blank" rel="noopener noreferrer">GitHub</a>
+					<a href="https://linkedin.com/in/willpinha" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+					<a href="https://willpinha.github.io/resume" target="_blank" rel="noopener noreferrer">Resume</a>
+				</p>
+			</nav>
+		</header>
+		<main>{{ content | safe }}</main>
+		<footer>
+			<small>⟳ The information on this website is updated daily. Last updated at <b>{{ github.updatedAt }} UTC</b></small>
+		</footer>
+	</body>
+</html>

@@ -1,4 +1,2 @@
 /dist/
-/tmp/
-build-errors.log
-willpinha.github.io
+/node_modules/
