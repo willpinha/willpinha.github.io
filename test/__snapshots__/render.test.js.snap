@@ -8,6 +8,8 @@ exports[`renders / 1`] = `
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Willian Pinheiro</title>
 		<link rel="icon" type="image/png" href="/assets/favicon.png" />
+		<link rel="alternate" type="application/atom+xml" title="Willian Pinheiro" href="/feed.xml" />
+		<link rel="stylesheet" href="/assets/prism.css" />
 		<style>
 			@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
 
@@ -173,6 +175,40 @@ exports[`renders / 1`] = `
 			.contrib-level-4 {
 				fill: #216e39;
 			}
+
+			ul.blog-posts {
+				list-style-type: none;
+				padding: unset;
+			}
+
+			ul.blog-posts li {
+				display: flex;
+				margin-bottom: 10px;
+			}
+
+			ul.blog-posts li span {
+				flex: 0 0 130px;
+			}
+
+			i time {
+				font-style: normal;
+				opacity: 0.7;
+			}
+
+			code[class*="language-"],
+			pre[class*="language-"] {
+				font-family: var(--font-main);
+				text-shadow: none;
+			}
+
+			pre[class*="language-"] {
+				border-radius: 3px;
+			}
+
+			pre code {
+				padding: 0;
+				background: none;
+			}
 		</style>
 	</head>
 	<body>
@@ -181,14 +217,257 @@ exports[`renders / 1`] = `
 			<nav>
 				<p>
 					<a href="/">Home</a>
+					<a href="/blog/">Blog</a>
 					<a href="/contributions/">Contributions</a>
-					<a href="https://github.com/willpinha" target="_blank" rel="noopener noreferrer">GitHub</a>
-					<a href="https://linkedin.com/in/willpinha" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+					<a href="https://github.com/willpinha" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+					<a href="https://linkedin.com/in/willpinha" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
 					<a href="https://willpinha.github.io/resume" target="_blank" rel="noopener noreferrer">Resume</a>
 				</p>
 			</nav>
 		</header>
 		<main><p>Hello world</p>
+</main>
+		<footer>
+			<small>⟳ The information on this website is updated daily. Last updated at <b>2026/07/13 13:27 UTC</b></small>
+		</footer>
+	</body>
+</html>
+"
+`;
+
+exports[`renders /blog/ 1`] = `
+"<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Willian Pinheiro - Blog</title>
+		<link rel="icon" type="image/png" href="/assets/favicon.png" />
+		<link rel="alternate" type="application/atom+xml" title="Willian Pinheiro" href="/feed.xml" />
+		<link rel="stylesheet" href="/assets/prism.css" />
+		<style>
+			@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
+
+			:root {
+				--width: 720px;
+				--font-main: "Roboto Mono", monospace;
+				--font-scale: 0.9em;
+				--background-color: #fff;
+				--heading-color: #232333;
+				--text-color: #232333;
+				--link-color: #232333;
+				--main-color: #ff0000;
+				--code-background-color: #f2f2f2;
+				--code-color: #222;
+			}
+
+			body {
+				font-family: var(--font-main);
+				font-size: var(--font-scale);
+				margin: auto;
+				padding: 20px;
+				max-width: var(--width);
+				text-align: left;
+				background-color: var(--background-color);
+				word-wrap: break-word;
+				overflow-wrap: break-word;
+				line-height: 1.5;
+				color: var(--text-color);
+			}
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				color: var(--heading-color);
+			}
+
+			a {
+				color: var(--link-color);
+				cursor: pointer;
+				text-decoration: none;
+				border-bottom: 3px solid var(--main-color);
+			}
+
+			a:hover {
+				background-color: var(--main-color);
+				color: white;
+			}
+
+			header {
+				margin-bottom: 40px;
+				padding-bottom: 20px;
+				border-bottom: 3px dotted var(--heading-color);
+			}
+
+			.title h1 {
+				font-size: 1.5em;
+			}
+
+			nav a {
+				margin-right: 8px;
+			}
+
+			strong,
+			b {
+				color: var(--heading-color);
+			}
+
+			main {
+				line-height: 1.6;
+			}
+
+			img {
+				max-width: 100%;
+			}
+
+			code {
+				font-family: monospace;
+				padding: 2px;
+				background-color: var(--code-background-color);
+				color: var(--code-color);
+				border-radius: 3px;
+			}
+
+			footer {
+				margin-top: 40px;
+				border-top: 3px dotted var(--heading-color);
+				padding: 25px 0;
+				text-align: center;
+			}
+
+			.avatar-link {
+				border-bottom: none;
+			}
+
+			.avatar-link:hover {
+				background-color: transparent;
+			}
+
+			.item-avatar {
+				width: 20px;
+				height: 20px;
+				object-fit: cover;
+				border-radius: 50%;
+				vertical-align: middle;
+				margin-right: 0.25rem;
+			}
+
+			.item-number {
+				font-size: 0.75em;
+				padding: 0.05em 0.3em;
+			}
+
+			.contributions-graph {
+				overflow-x: auto;
+				margin-bottom: 0.75rem;
+			}
+
+			.contributions-graph svg {
+				display: block;
+				margin: 0 auto;
+			}
+
+			.contributors {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.4rem;
+				margin-top: 0.75rem;
+				margin-bottom: 1.5rem;
+			}
+
+			.contributor-avatar {
+				width: 32px;
+				height: 32px;
+				object-fit: cover;
+				border-radius: 50%;
+			}
+
+			.contrib-label {
+				font-size: 9px;
+				fill: var(--text-color);
+				opacity: 0.7;
+			}
+
+			.contrib-level-0 {
+				fill: #ebedf0;
+			}
+
+			.contrib-level-1 {
+				fill: #9be9a8;
+			}
+
+			.contrib-level-2 {
+				fill: #40c463;
+			}
+
+			.contrib-level-3 {
+				fill: #30a14e;
+			}
+
+			.contrib-level-4 {
+				fill: #216e39;
+			}
+
+			ul.blog-posts {
+				list-style-type: none;
+				padding: unset;
+			}
+
+			ul.blog-posts li {
+				display: flex;
+				margin-bottom: 10px;
+			}
+
+			ul.blog-posts li span {
+				flex: 0 0 130px;
+			}
+
+			i time {
+				font-style: normal;
+				opacity: 0.7;
+			}
+
+			code[class*="language-"],
+			pre[class*="language-"] {
+				font-family: var(--font-main);
+				text-shadow: none;
+			}
+
+			pre[class*="language-"] {
+				border-radius: 3px;
+			}
+
+			pre code {
+				padding: 0;
+				background: none;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a class="title" href="/"><h1>Willian Pinheiro</h1></a>
+			<nav>
+				<p>
+					<a href="/">Home</a>
+					<a href="/blog/">Blog</a>
+					<a href="/contributions/">Contributions</a>
+					<a href="https://github.com/willpinha" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+					<a href="https://linkedin.com/in/willpinha" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+					<a href="https://willpinha.github.io/resume" target="_blank" rel="noopener noreferrer">Resume</a>
+				</p>
+			</nav>
+		</header>
+		<main><ul class="blog-posts">
+	
+	<li>
+		<span><i><time datetime="2026-09-11">11 Sep, 2026</time></i></span>
+		<a href="/blog/hello-world/">Hello world</a>
+	</li>
+	
+</ul>
 </main>
 		<footer>
 			<small>⟳ The information on this website is updated daily. Last updated at <b>2026/07/13 13:27 UTC</b></small>
@@ -206,6 +485,8 @@ exports[`renders /contributions/ 1`] = `
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Willian Pinheiro - Contributions</title>
 		<link rel="icon" type="image/png" href="/assets/favicon.png" />
+		<link rel="alternate" type="application/atom+xml" title="Willian Pinheiro" href="/feed.xml" />
+		<link rel="stylesheet" href="/assets/prism.css" />
 		<style>
 			@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
 
@@ -371,6 +652,40 @@ exports[`renders /contributions/ 1`] = `
 			.contrib-level-4 {
 				fill: #216e39;
 			}
+
+			ul.blog-posts {
+				list-style-type: none;
+				padding: unset;
+			}
+
+			ul.blog-posts li {
+				display: flex;
+				margin-bottom: 10px;
+			}
+
+			ul.blog-posts li span {
+				flex: 0 0 130px;
+			}
+
+			i time {
+				font-style: normal;
+				opacity: 0.7;
+			}
+
+			code[class*="language-"],
+			pre[class*="language-"] {
+				font-family: var(--font-main);
+				text-shadow: none;
+			}
+
+			pre[class*="language-"] {
+				border-radius: 3px;
+			}
+
+			pre code {
+				padding: 0;
+				background: none;
+			}
 		</style>
 	</head>
 	<body>
@@ -379,16 +694,17 @@ exports[`renders /contributions/ 1`] = `
 			<nav>
 				<p>
 					<a href="/">Home</a>
+					<a href="/blog/">Blog</a>
 					<a href="/contributions/">Contributions</a>
-					<a href="https://github.com/willpinha" target="_blank" rel="noopener noreferrer">GitHub</a>
-					<a href="https://linkedin.com/in/willpinha" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+					<a href="https://github.com/willpinha" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+					<a href="https://linkedin.com/in/willpinha" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
 					<a href="https://willpinha.github.io/resume" target="_blank" rel="noopener noreferrer">Resume</a>
 				</p>
 			</nav>
 		</header>
 		<main>
 <section>
-	<h2>Contributions</h2>
+	<h3>Contributions</h3>
 	<p>
 		<b>2007</b> contributions in the last year. They include commits,
 		pull requests, issues, and discussions
@@ -1919,7 +2235,7 @@ exports[`renders /contributions/ 1`] = `
 </section>
 
 <section>
-	<h2>My most famous repositories</h2>
+	<h3>My most famous repositories</h3>
 	<ul>
 		
 		<li><a href="https://github.com/willpinha/daisy-components" target="_blank" rel="noopener noreferrer">daisy-components</a> ★ 437</li>
@@ -1930,7 +2246,7 @@ exports[`renders /contributions/ 1`] = `
 </section>
 
 <section>
-	<h2>Latest pull requests I created [<a href="/pull-requests/">see all</a>]</h2>
+	<h3>Latest pull requests I created [<a href="/pull-requests/">see all</a>]</h3>
 	<ul>
 		
 		<li><a class="avatar-link" href="https://github.com/torvalds" target="_blank" rel="noopener noreferrer"><img class="item-avatar" src="https://avatars.githubusercontent.com/u/1024025?s=64&amp;v=4" alt="torvalds" loading="lazy" /></a>
@@ -1957,7 +2273,7 @@ exports[`renders /contributions/ 1`] = `
 </section>
 
 <section>
-	<h2>Latest issues I participated in [<a href="/issues/">see all</a>]</h2>
+	<h3>Latest issues I participated in [<a href="/issues/">see all</a>]</h3>
 	<ul>
 		
 		<li><a class="avatar-link" href="https://github.com/willpinha" target="_blank" rel="noopener noreferrer"><img class="item-avatar" src="https://avatars.githubusercontent.com/u/86596621?s=64&amp;v=4" alt="willpinha" loading="lazy" /></a>
@@ -1976,7 +2292,7 @@ exports[`renders /contributions/ 1`] = `
 </section>
 
 <section>
-	<h2>Latest discussions I participated in [<a href="/discussions/">see all</a>]</h2>
+	<h3>Latest discussions I participated in [<a href="/discussions/">see all</a>]</h3>
 	<ul>
 		
 		<li><a class="avatar-link" href="https://github.com/willpinha" target="_blank" rel="noopener noreferrer"><img class="item-avatar" src="https://avatars.githubusercontent.com/u/86596621?s=64&amp;v=4" alt="willpinha" loading="lazy" /></a>
@@ -2002,6 +2318,8 @@ exports[`renders /discussions/ 1`] = `
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Willian Pinheiro - Discussions I participated in</title>
 		<link rel="icon" type="image/png" href="/assets/favicon.png" />
+		<link rel="alternate" type="application/atom+xml" title="Willian Pinheiro" href="/feed.xml" />
+		<link rel="stylesheet" href="/assets/prism.css" />
 		<style>
 			@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
 
@@ -2167,6 +2485,40 @@ exports[`renders /discussions/ 1`] = `
 			.contrib-level-4 {
 				fill: #216e39;
 			}
+
+			ul.blog-posts {
+				list-style-type: none;
+				padding: unset;
+			}
+
+			ul.blog-posts li {
+				display: flex;
+				margin-bottom: 10px;
+			}
+
+			ul.blog-posts li span {
+				flex: 0 0 130px;
+			}
+
+			i time {
+				font-style: normal;
+				opacity: 0.7;
+			}
+
+			code[class*="language-"],
+			pre[class*="language-"] {
+				font-family: var(--font-main);
+				text-shadow: none;
+			}
+
+			pre[class*="language-"] {
+				border-radius: 3px;
+			}
+
+			pre code {
+				padding: 0;
+				background: none;
+			}
 		</style>
 	</head>
 	<body>
@@ -2175,9 +2527,10 @@ exports[`renders /discussions/ 1`] = `
 			<nav>
 				<p>
 					<a href="/">Home</a>
+					<a href="/blog/">Blog</a>
 					<a href="/contributions/">Contributions</a>
-					<a href="https://github.com/willpinha" target="_blank" rel="noopener noreferrer">GitHub</a>
-					<a href="https://linkedin.com/in/willpinha" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+					<a href="https://github.com/willpinha" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+					<a href="https://linkedin.com/in/willpinha" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
 					<a href="https://willpinha.github.io/resume" target="_blank" rel="noopener noreferrer">Resume</a>
 				</p>
 			</nav>
@@ -2213,6 +2566,8 @@ exports[`renders /issues/ 1`] = `
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Willian Pinheiro - Issues I participated in</title>
 		<link rel="icon" type="image/png" href="/assets/favicon.png" />
+		<link rel="alternate" type="application/atom+xml" title="Willian Pinheiro" href="/feed.xml" />
+		<link rel="stylesheet" href="/assets/prism.css" />
 		<style>
 			@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
 
@@ -2378,6 +2733,40 @@ exports[`renders /issues/ 1`] = `
 			.contrib-level-4 {
 				fill: #216e39;
 			}
+
+			ul.blog-posts {
+				list-style-type: none;
+				padding: unset;
+			}
+
+			ul.blog-posts li {
+				display: flex;
+				margin-bottom: 10px;
+			}
+
+			ul.blog-posts li span {
+				flex: 0 0 130px;
+			}
+
+			i time {
+				font-style: normal;
+				opacity: 0.7;
+			}
+
+			code[class*="language-"],
+			pre[class*="language-"] {
+				font-family: var(--font-main);
+				text-shadow: none;
+			}
+
+			pre[class*="language-"] {
+				border-radius: 3px;
+			}
+
+			pre code {
+				padding: 0;
+				background: none;
+			}
 		</style>
 	</head>
 	<body>
@@ -2386,9 +2775,10 @@ exports[`renders /issues/ 1`] = `
 			<nav>
 				<p>
 					<a href="/">Home</a>
+					<a href="/blog/">Blog</a>
 					<a href="/contributions/">Contributions</a>
-					<a href="https://github.com/willpinha" target="_blank" rel="noopener noreferrer">GitHub</a>
-					<a href="https://linkedin.com/in/willpinha" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+					<a href="https://github.com/willpinha" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+					<a href="https://linkedin.com/in/willpinha" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
 					<a href="https://willpinha.github.io/resume" target="_blank" rel="noopener noreferrer">Resume</a>
 				</p>
 			</nav>
@@ -2442,6 +2832,8 @@ exports[`renders /pull-requests/ 1`] = `
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Willian Pinheiro - Pull requests I created</title>
 		<link rel="icon" type="image/png" href="/assets/favicon.png" />
+		<link rel="alternate" type="application/atom+xml" title="Willian Pinheiro" href="/feed.xml" />
+		<link rel="stylesheet" href="/assets/prism.css" />
 		<style>
 			@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
 
@@ -2607,6 +2999,40 @@ exports[`renders /pull-requests/ 1`] = `
 			.contrib-level-4 {
 				fill: #216e39;
 			}
+
+			ul.blog-posts {
+				list-style-type: none;
+				padding: unset;
+			}
+
+			ul.blog-posts li {
+				display: flex;
+				margin-bottom: 10px;
+			}
+
+			ul.blog-posts li span {
+				flex: 0 0 130px;
+			}
+
+			i time {
+				font-style: normal;
+				opacity: 0.7;
+			}
+
+			code[class*="language-"],
+			pre[class*="language-"] {
+				font-family: var(--font-main);
+				text-shadow: none;
+			}
+
+			pre[class*="language-"] {
+				border-radius: 3px;
+			}
+
+			pre code {
+				padding: 0;
+				background: none;
+			}
 		</style>
 	</head>
 	<body>
@@ -2615,9 +3041,10 @@ exports[`renders /pull-requests/ 1`] = `
 			<nav>
 				<p>
 					<a href="/">Home</a>
+					<a href="/blog/">Blog</a>
 					<a href="/contributions/">Contributions</a>
-					<a href="https://github.com/willpinha" target="_blank" rel="noopener noreferrer">GitHub</a>
-					<a href="https://linkedin.com/in/willpinha" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+					<a href="https://github.com/willpinha" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+					<a href="https://linkedin.com/in/willpinha" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
 					<a href="https://willpinha.github.io/resume" target="_blank" rel="noopener noreferrer">Resume</a>
 				</p>
 			</nav>
