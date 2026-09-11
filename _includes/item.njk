@@ -1,0 +1,6 @@
+{% macro item(it) -%}
+<a class="avatar-link" href="https://github.com/{{ it.repoOwnerLogin }}" target="_blank" rel="noopener noreferrer"><img class="item-avatar" src="{{ it.repoOwnerAvatarUrl }}" alt="{{ it.repoOwnerLogin }}" loading="lazy" /></a>
+<a href="{{ it.repoUrl }}" target="_blank" rel="noopener noreferrer">{{ it.repoName }}</a>,
+<a href="{{ it.url }}" target="_blank" rel="noopener noreferrer"><code class="item-number">#{{ it.number }}</code> {{ it.title }}</a>
+{%- if it.state %} {% if it.state == "merged" %}✔{% elif it.state == "closed" %}✘{% elif it.state == "open" %}◌{% endif %} {{ it.state }}{% endif %}
+{%- endmacro %}
