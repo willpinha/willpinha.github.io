@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.8/schema.json
+cv:
+    name: Willian Pinheiro
+    headline: Mid-Level Software Engineer
+    location: São Paulo, Brazil
+    email: willpinhaaa@gmail.com
+    website: https://willpinha.github.io
+    social_networks:
+        - network: LinkedIn
+          username: willpinha
+        - network: GitHub
+          username: willpinha
+    sections:
+        about:
+            - >
+                Backend software developer with 3 years of experience, currently focused on high-scalability systems. Enjoys understanding the business processes behind the systems he builds, not just the technology, aiming to propose solutions together with the teams that improve the company's operation as a whole.
+        education:
+            - institution: University of São Paulo (USP)
+              area: Information Systems
+              degree: BS
+              start_date: 2020-03
+              end_date: 2025-05
+        experience:
+            - company: Mercado Livre
+              position: Software Developer
+              start_date: 2025-02
+              end_date: present
+              highlights:
+                  - Maintenance and evolution of the Warehouse Management System, working on the optimization of picking routes across more than 100 distribution centers
+                  - Systems that support millions of daily requests, maintaining high availability in a critical operation environment
+                  - Proposed and implemented observability tools to identify data inconsistencies between synchronized databases and monitor delays in critical processing flows
+            - company: Círculo Militar de São Paulo
+              position: Systems Analyst
+              start_date: 2024-02
+              end_date: 2025-02
+              highlights:
+                  - Collaborated on the development of the club's space booking system (courts, beauty salon, gyms) in C# and SQL Server, for internal and external use
+                  - Integration with a third-party turnstile access control system to monitor entry of members and employees
+                  - Independently developed the package management system, allowing front-desk registration and later pickup by members and employees
+        projects:
+            - name: "[willpinha.github.io](https://willpinha.github.io)"
+              summary: >
+                  Personal website in Go that consumes the GitHub GraphQL API to showcase open source contributions
+              highlights:
+                  - Static site generation from GitHub GraphQL API data
+                  - Automated tests and CI/CD pipeline for build and deploy
+        skills:
+            - label: Languages
+              details: Go, Java, C#, PHP, Python, TypeScript, SQL
+            - label: Databases
+              details: MySQL, SQL Server, PostgreSQL
+            - label: Infrastructure
+              details: Docker, Kubernetes, Fury (Mercado Livre's IDP), messaging (queue/pub-sub), object storage
+            - label: Observability
+              details: Grafana, Datadog, ClickHouse
+            - label: Spoken Languages
+              details: Portuguese (native), English (intermediate)
+design:
+    theme: moderncv
+    templates:
+        footer: ""
+        top_note: ""
+locale:
+    language: english
+settings:
+    current_date: today
+    pdf_title: Willian Pinheiro
+    render_command:
+        output_folder: output
+        typst_path: OUTPUT_FOLDER/willian-pinheiro-resume.typ
+        pdf_path: OUTPUT_FOLDER/willian-pinheiro-resume.pdf
+        dont_generate_markdown: true
+        dont_generate_html: true
+        dont_generate_png: true

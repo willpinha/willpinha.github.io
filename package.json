@@ -4,8 +4,9 @@
   "type": "module",
   "scripts": {
     "dev": "eleventy --serve",
-    "build": "npm run clean && GITHUB_TOKEN=\"${GITHUB_TOKEN:-$(gh auth token)}\" eleventy",
-    "clean": "rm -rf dist",
+    "resume": "uv run --project resume rendercv render resume/resume.yaml",
+    "build": "npm run clean && npm run resume && GITHUB_TOKEN=\"${GITHUB_TOKEN:-$(gh auth token)}\" eleventy",
+    "clean": "rm -rf dist resume/output",
     "test": "vitest run"
   },
   "devDependencies": {
