@@ -704,7 +704,6 @@ exports[`renders /contributions/ 1`] = `
 		</header>
 		<main>
 <section>
-	<h3>Contributions</h3>
 	<p>
 		<b>2007</b> contributions in the last year. They include commits,
 		pull requests, issues, and discussions
@@ -2220,6 +2219,7 @@ exports[`renders /contributions/ 1`] = `
 			
 		</svg>
 	</div>
+	<h2>Users and organizations</h2>
 	<p>
 		Below are all the users and organizations I've contributed to. They are
 		ordered by total contributions; you can hover over each one to see the
@@ -2235,7 +2235,7 @@ exports[`renders /contributions/ 1`] = `
 </section>
 
 <section>
-	<h3>My most famous repositories</h3>
+	<h2>My most famous repositories</h2>
 	<ul>
 		
 		<li><a href="https://github.com/willpinha/daisy-components" target="_blank" rel="noopener noreferrer">daisy-components</a> ★ 437</li>
@@ -2246,7 +2246,7 @@ exports[`renders /contributions/ 1`] = `
 </section>
 
 <section>
-	<h3>Latest pull requests I created [<a href="/pull-requests/">see all</a>]</h3>
+	<h2>Latest pull requests I created [<a href="/pull-requests/">see all</a>]</h2>
 	<ul>
 		
 		<li><a class="avatar-link" href="https://github.com/torvalds" target="_blank" rel="noopener noreferrer"><img class="item-avatar" src="https://avatars.githubusercontent.com/u/1024025?s=64&amp;v=4" alt="torvalds" loading="lazy" /></a>
@@ -2273,7 +2273,7 @@ exports[`renders /contributions/ 1`] = `
 </section>
 
 <section>
-	<h3>Latest issues I participated in [<a href="/issues/">see all</a>]</h3>
+	<h2>Latest issues I participated in [<a href="/issues/">see all</a>]</h2>
 	<ul>
 		
 		<li><a class="avatar-link" href="https://github.com/willpinha" target="_blank" rel="noopener noreferrer"><img class="item-avatar" src="https://avatars.githubusercontent.com/u/86596621?s=64&amp;v=4" alt="willpinha" loading="lazy" /></a>
@@ -2292,7 +2292,7 @@ exports[`renders /contributions/ 1`] = `
 </section>
 
 <section>
-	<h3>Latest discussions I participated in [<a href="/discussions/">see all</a>]</h3>
+	<h2>Latest discussions I participated in [<a href="/discussions/">see all</a>]</h2>
 	<ul>
 		
 		<li><a class="avatar-link" href="https://github.com/willpinha" target="_blank" rel="noopener noreferrer"><img class="item-avatar" src="https://avatars.githubusercontent.com/u/86596621?s=64&amp;v=4" alt="willpinha" loading="lazy" /></a>
