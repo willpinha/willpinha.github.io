@@ -67,6 +67,28 @@
 
 			.title h1 {
 				font-size: 1.5em;
+				margin: 0;
+			}
+
+			.header-top {
+				display: flex;
+				margin: 1em 0;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 0 1rem;
+			}
+
+			.title {
+				border-bottom: none;
+			}
+
+			.title:hover {
+				background-color: transparent;
+			}
+
+			.visitors {
+				margin-left: auto;
+				white-space: nowrap;
 			}
 
 			nav a {
@@ -417,7 +439,10 @@
 	</head>
 	<body>
 		<header>
-			<a class="title" href="/"><h1>{{ site.title }}</h1></a>
+			<div class="header-top">
+				<a class="title" href="/"><h1>{{ site.title }}</h1></a>
+				<small class="visitors" hidden>👁 <b>0</b> unique visitors</small>
+			</div>
 			<nav>
 				<p>
 					<a href="/">⌂ Home</a>
@@ -434,5 +459,20 @@
 		<footer>
 			<small>⟳ The information on this website is updated daily. Last updated at <b>{{ github.updatedAt }} UTC</b></small>
 		</footer>
+		<script data-goatcounter="https://willpinha.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+		<script>
+			// Hidden by default because ad blockers often block GoatCounter, which would leave a dangling "0"
+			fetch("https://willpinha.goatcounter.com/counter/TOTAL.json")
+				.then((response) => {
+					if (!response.ok) throw new Error(`Counter returned ${response.status}`);
+					return response.json();
+				})
+				.then((data) => {
+					const visitors = document.querySelector(".visitors");
+					visitors.querySelector("b").textContent = data.count;
+					visitors.hidden = false;
+				})
+				.catch(() => {});
+		</script>
 	</body>
 </html>
