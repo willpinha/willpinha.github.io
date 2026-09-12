@@ -392,14 +392,24 @@
 				display: none;
 			}
 
+			/* Fences without a language render as a bare <pre><code>; the Prism selectors are kept to match the theme's specificity */
 			code[class*="language-"],
-			pre[class*="language-"] {
+			pre[class*="language-"],
+			pre code,
+			pre {
 				font-family: var(--font-main);
+				line-height: 1.5;
 				text-shadow: none;
 			}
 
-			pre[class*="language-"] {
+			pre[class*="language-"],
+			pre {
+				padding: 1em;
+				margin: 0.5em 0;
+				overflow: auto;
 				border-radius: 3px;
+				background-color: var(--background-color);
+				border: 1px solid var(--heading-color);
 			}
 
 			pre code {
