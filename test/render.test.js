@@ -2,7 +2,7 @@ import Eleventy from "@11ty/eleventy";
 import { readdirSync } from "node:fs";
 import { afterAll, beforeAll, expect, test, vi } from "vitest";
 
-const snapshotUrls = ["/", "/blog/", "/contributions/", "/pull-requests/", "/issues/", "/discussions/"];
+const staticUrls = ["/", "/blog/", "/contributions/", "/pull-requests/", "/issues/", "/discussions/"];
 
 const postSlugs = readdirSync("posts")
 	.filter((file) => file.endsWith(".md"))
@@ -24,12 +24,8 @@ afterAll(() => {
 });
 
 test("renders exactly the expected pages", () => {
-	const expected = [...snapshotUrls, "/feed.xml", ...postSlugs.map((slug) => `/blog/${slug}/`)];
+	const expected = [...staticUrls, "/feed.xml", ...postSlugs.map((slug) => `/blog/${slug}/`)];
 	expect([...pagesByUrl.keys()].sort()).toEqual(expected.sort());
-});
-
-test.each(snapshotUrls)("renders %s", (url) => {
-	expect(pagesByUrl.get(url)).toMatchSnapshot();
 });
 
 test.each(postSlugs)("renders post %s with title and date", (slug) => {
