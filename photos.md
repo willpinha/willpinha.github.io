@@ -9,7 +9,7 @@ items:
           - /assets/photos/2026-07-25-muay-thai-graduation/2.jpg
           - /assets/photos/2026-07-25-muay-thai-graduation/3.jpg
     - date: 2025-04-28
-      description: Trip to Natal, Rio Grande do Norte. I went to the dunes, parasailed, scuba dived, rode a quad bike, among many other things
+      description: Trip to Natal (Rio Grande do Norte). I went to the dunes, parasailed, scuba dived, rode a quad bike, among many other things
       photos:
           - /assets/photos/2025-04-28-natal-rn/1.jpg
           - /assets/photos/2025-04-28-natal-rn/2.jpg
@@ -21,6 +21,26 @@ items:
           - /assets/photos/2000-11-11-dogs/1.jpg
           - /assets/photos/2000-11-11-dogs/2.jpg
           - /assets/photos/2000-11-11-dogs/3.jpg
+    - date: 2026-03-29
+      description: Recharging my batteries at the São Paulo Botanical Garden
+      photos:
+          - /assets/photos/2026-03-29-botanical-garden-sp/1.jpg
+          - /assets/photos/2026-03-29-botanical-garden-sp/2.jpg
+          - /assets/photos/2026-03-29-botanical-garden-sp/3.jpg
+    - date: 2026-04-17
+      description: Trip to Recife, João Pessoa and surrounding areas. Very cheerful and beautiful places
+      photos:
+          - /assets/photos/2026-04-17-recife-joao-pessoa/1.jpg
+          - /assets/photos/2026-04-17-recife-joao-pessoa/2.jpg
+          - /assets/photos/2026-04-17-recife-joao-pessoa/3.jpg
+          - /assets/photos/2026-04-17-recife-joao-pessoa/4.jpg
+          - /assets/photos/2026-04-17-recife-joao-pessoa/5.jpg
+    - date: 2026-08-27
+      description: Memories working on Mercado Livre
+      photos:
+          - /assets/photos/2026-08-27-mercado-livre/1.jpg
+          - /assets/photos/2026-08-27-mercado-livre/2.jpg
+          - /assets/photos/2026-08-27-mercado-livre/3.jpg
 ---
 
 Photos that captured certain moments in my life. I post them here since I don't usually use social media

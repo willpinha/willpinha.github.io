@@ -5,7 +5,7 @@ date: 2023-08-30
 
 > **Note:** This article was originally published on my Medium while I was taking database classes at the University of São Paulo
 >
-> A large part of this article was written on my train rides back home. Good times :-)
+> A large part of this article was written on my phone during my train rides back home. Good times :-)
 
 DBMSs (Database Management Systems) are software created to facilitate the storage and retrieval of data in a computer system
 
