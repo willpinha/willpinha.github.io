@@ -6,7 +6,7 @@ import { formatIsoDate, formatPostDate } from "./lib/dates.js";
 
 export default function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("assets");
-	eleventyConfig.addPassthroughCopy({ "node_modules/prismjs/themes/prism.css": "assets/prism.css" });
+	eleventyConfig.addPassthroughCopy({ "node_modules/prism-themes/themes/prism-coldark-cold.css": "assets/prism.css" });
 	eleventyConfig.addPassthroughCopy({
 		"resume/output/willian-pinheiro-resume.pdf": "willian-pinheiro-resume.pdf",
 	});
