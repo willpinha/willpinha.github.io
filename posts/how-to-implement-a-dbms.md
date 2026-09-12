@@ -11,7 +11,7 @@ Usually, when we develop an application that accesses a DBMS, we don't think muc
 
 The main goal of this article is to present the core ideas behind implementing a DBMS, along with a bonus that gives a simplified explanation of how SQLite was implemented
 
-## Data comes and goes But what does it represent?
+## Data comes and goes. But what does it represent?
 
 Before understanding what happens during the execution of a DBMS, we need to understand what data is
 
