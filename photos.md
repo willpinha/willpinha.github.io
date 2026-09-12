@@ -41,6 +41,11 @@ items:
           - /assets/photos/2026-08-27-mercado-livre/1.jpg
           - /assets/photos/2026-08-27-mercado-livre/2.jpg
           - /assets/photos/2026-08-27-mercado-livre/3.jpg
+    - date: 2025-05-08
+      description: After five long years of study, I graduated in Information Systems from the University of São Paulo
+      photos:
+          - /assets/photos/2025-05-08-graduation-usp/1.jpg
+          - /assets/photos/2025-05-08-graduation-usp/2.jpg
 ---
 
 Photos that captured certain moments in my life. I post them here since I don't usually use social media
