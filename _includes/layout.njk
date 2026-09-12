@@ -72,6 +72,7 @@
 
 			.header-top {
 				display: flex;
+				justify-content: space-between;
 				margin: 1em 0;
 				flex-wrap: wrap;
 				align-items: center;
@@ -87,7 +88,6 @@
 			}
 
 			.visitors {
-				margin-left: auto;
 				white-space: nowrap;
 			}
 
@@ -461,7 +461,7 @@
 		</footer>
 		<script data-goatcounter="https://willpinha.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 		<script>
-			// Hidden on failure because ad blockers often block GoatCounter, which would leave "Loading..." forever
+			// Hidden on failure because ad blockers often block GoatCounter, which would leave the placeholder forever
 			fetch("https://willpinha.goatcounter.com/counter/TOTAL.json")
 				.then((response) => {
 					if (!response.ok) throw new Error(`Counter returned ${response.status}`);
