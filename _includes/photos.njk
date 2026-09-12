@@ -1,0 +1,42 @@
+---
+layout: layout.njk
+---
+{{ content | safe }}
+<noscript>
+	<style>
+		.photo-thumb img {
+			-webkit-mask-position: 0 0;
+			mask-position: 0 0;
+		}
+	</style>
+</noscript>
+<ul class="photo-items">
+	{% for item in items | sort(true, false, "date") %}
+	<li class="photo-item">
+		<a class="photo-link photo-thumb{% if item.photos.length > 1 %} photo-stack{% endif %}" href="{{ item.photos[0] }}">
+			<img src="{{ item.photos[0] }}" alt="{{ item.description | renderContent("md") | striptags | trim | safe }}" loading="lazy" />
+			{% if item.photos.length > 1 %}<span class="photo-count">{{ item.photos.length }}</span>{% endif %}
+		</a>
+		{%- for photo in item.photos %}{% if not loop.first %}
+		<a class="photo-link" href="{{ photo }}" hidden></a>
+		{%- endif %}{% endfor %}
+		<div class="photo-text">
+			<p><i><time datetime="{{ item.date | isoDate }}">{{ item.date | postDate }}</time></i></p>
+			<div class="photo-description">{{ item.description | renderContent("md") | safe }}</div>
+		</div>
+	</li>
+	{% endfor %}
+</ul>
+<dialog class="photo-modal">
+	<button class="photo-modal-close" type="button" aria-label="Close">✕</button>
+	<button class="photo-modal-prev" type="button" aria-label="Previous photo">←</button>
+	<button class="photo-modal-next" type="button" aria-label="Next photo">→</button>
+	<figure>
+		<img alt="" />
+		<figcaption>
+			<span class="photo-modal-counter"></span>
+			<div class="photo-modal-description"></div>
+		</figcaption>
+	</figure>
+</dialog>
+<script src="/assets/photos.js" defer></script>

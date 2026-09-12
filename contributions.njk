@@ -27,9 +27,9 @@ pageTitle: Contributions
 			{% endfor %}
 		</svg>
 	</div>
-	<h2>Users and organizations</h2>
+	<h3>Users and organizations</h3>
 	<p>
-		Below are all the users and organizations I've contributed to. They are
+		All the users and organizations I've contributed to. They are
 		ordered by total contributions; you can hover over each one to see the
 		total contributions
 	</p>
@@ -41,7 +41,7 @@ pageTitle: Contributions
 </section>
 
 <section>
-	<h2>My most famous repositories</h2>
+	<h3>My most famous repositories</h3>
 	<ul>
 		{% for repo in github.repos %}
 		<li><a href="{{ repo.url }}" target="_blank" rel="noopener noreferrer">{{ repo.name }}</a> ★ {{ repo.stars }}</li>
@@ -50,7 +50,7 @@ pageTitle: Contributions
 </section>
 
 <section>
-	<h2>Latest pull requests I created [<a href="/pull-requests/">see all</a>]</h2>
+	<h3>Latest pull requests I created [<a href="/pull-requests/">see all</a>]</h3>
 	<ul>
 		{% for it in github.pullRequests.latest %}
 		<li>{{ item(it) }}</li>
@@ -59,7 +59,7 @@ pageTitle: Contributions
 </section>
 
 <section>
-	<h2>Latest issues I participated in [<a href="/issues/">see all</a>]</h2>
+	<h3>Latest issues I participated in [<a href="/issues/">see all</a>]</h3>
 	<ul>
 		{% for it in github.issues.latest %}
 		<li>{{ item(it) }}</li>
@@ -68,7 +68,7 @@ pageTitle: Contributions
 </section>
 
 <section>
-	<h2>Latest discussions I participated in [<a href="/discussions/">see all</a>]</h2>
+	<h3>Latest discussions I participated in [<a href="/discussions/">see all</a>]</h3>
 	<ul>
 		{% for it in github.discussions.latest %}
 		<li>{{ item(it) }}</li>

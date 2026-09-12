@@ -193,6 +193,194 @@
 				opacity: 0.7;
 			}
 
+			ul.photo-items {
+				list-style-type: none;
+				padding: unset;
+				margin-top: 2rem;
+			}
+
+			ul.photo-items li {
+				display: flex;
+				align-items: flex-start;
+				gap: 1.5rem;
+				margin-bottom: 1.5rem;
+			}
+
+			.photo-thumb {
+				position: relative;
+				z-index: 0;
+				display: block;
+				flex: 0 0 96px;
+				border-bottom: none;
+				border-radius: 3px;
+				background-color: var(--background-color);
+			}
+
+			.photo-thumb:hover {
+				background-color: transparent;
+			}
+
+			/* The photo is painted over the white square with a soft diagonal sweep once it loads */
+			.photo-thumb img {
+				display: block;
+				width: 96px;
+				height: 96px;
+				object-fit: cover;
+				border-radius: 3px;
+				-webkit-mask-image: linear-gradient(115deg, #000 40%, transparent 60%);
+				mask-image: linear-gradient(115deg, #000 40%, transparent 60%);
+				-webkit-mask-size: 300% 100%;
+				mask-size: 300% 100%;
+				-webkit-mask-repeat: no-repeat;
+				mask-repeat: no-repeat;
+				-webkit-mask-position: 100% 0;
+				mask-position: 100% 0;
+				transition: -webkit-mask-position 0.8s ease-in-out, mask-position 0.8s ease-in-out;
+			}
+
+			.photo-thumb img.loaded {
+				-webkit-mask-position: 0 0;
+				mask-position: 0 0;
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				.photo-thumb img {
+					transition: none;
+				}
+			}
+
+			/* Two cards behind the first photo, only for items with several photos */
+			.photo-stack::before,
+			.photo-stack::after {
+				content: "";
+				position: absolute;
+				inset: 0;
+				z-index: -1;
+				border: 1px solid var(--heading-color);
+				border-radius: 3px;
+				background-color: var(--background-color);
+			}
+
+			.photo-stack::before {
+				transform: translate(6px, 6px);
+			}
+
+			.photo-stack::after {
+				transform: translate(3px, 3px);
+			}
+
+			.photo-count {
+				position: absolute;
+				top: -6px;
+				right: -6px;
+				min-width: 1.5em;
+				height: 1.5em;
+				line-height: 1.5em;
+				padding: 0 0.3em;
+				box-sizing: border-box;
+				border-radius: 999px;
+				background-color: var(--main-color);
+				color: white;
+				font-size: 0.75em;
+				text-align: center;
+			}
+
+			.photo-text {
+				flex: 1;
+				min-width: 0;
+			}
+
+			.photo-text p {
+				margin: 0 0 0.25em;
+			}
+
+			.photo-modal {
+				width: 100%;
+				height: 100%;
+				max-width: none;
+				max-height: none;
+				margin: 0;
+				padding: 0;
+				border: none;
+				background-color: rgba(0, 0, 0, 0.85);
+				color: white;
+				font-family: var(--font-main);
+			}
+
+			.photo-modal::backdrop {
+				background: transparent;
+			}
+
+			body:has(.photo-modal[open]) {
+				overflow: hidden;
+			}
+
+			.photo-modal figure {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				gap: 0.75rem;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+			}
+
+			.photo-modal img {
+				max-width: 90vw;
+				max-height: 80vh;
+				object-fit: contain;
+				border-radius: 3px;
+			}
+
+			.photo-modal figcaption {
+				max-width: 90vw;
+				text-align: center;
+			}
+
+			.photo-modal figcaption p {
+				margin: 0;
+			}
+
+			.photo-modal figcaption a {
+				color: white;
+			}
+
+			.photo-modal button {
+				position: absolute;
+				padding: 0.5rem 0.75rem;
+				border: none;
+				background: none;
+				color: white;
+				font-family: var(--font-main);
+				font-size: 1.5em;
+				text-shadow: 0 0 4px black;
+				cursor: pointer;
+			}
+
+			.photo-modal-close {
+				top: 0.5rem;
+				right: 0.5rem;
+			}
+
+			.photo-modal-prev,
+			.photo-modal-next {
+				top: 50%;
+				transform: translateY(-50%);
+			}
+
+			.photo-modal-prev {
+				left: 0.5rem;
+			}
+
+			.photo-modal-next {
+				right: 0.5rem;
+			}
+
+			.photo-modal [hidden] {
+				display: none;
+			}
+
 			code[class*="language-"],
 			pre[class*="language-"] {
 				font-family: var(--font-main);
@@ -217,9 +405,10 @@
 					<a href="/">Home</a>
 					<a href="/blog/">Blog</a>
 					<a href="/contributions/">Contributions</a>
-					<a href="https://github.com/{{ site.login }}" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-					<a href="https://linkedin.com/in/willpinha" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-					<a href="/willian-pinheiro-resume.pdf" target="_blank" rel="noopener noreferrer">Resume ↗</a>
+					<a href="/photos/">Photos</a>
+					<a href="https://github.com/{{ site.login }}" target="_blank" rel="noopener noreferrer">GitHub↗</a>
+					<a href="https://linkedin.com/in/willpinha" target="_blank" rel="noopener noreferrer">LinkedIn↗</a>
+					<a href="/willian-pinheiro-resume.pdf" target="_blank" rel="noopener noreferrer">Resume↗</a>
 				</p>
 			</nav>
 		</header>

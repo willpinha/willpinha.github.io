@@ -1,3 +1,4 @@
+import { RenderPlugin } from "@11ty/eleventy";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import site from "./_data/site.json" with { type: "json" };
@@ -15,6 +16,7 @@ export default function (eleventyConfig) {
 	eleventyConfig.addFilter("postDate", formatPostDate);
 	eleventyConfig.addFilter("isoDate", formatIsoDate);
 
+	eleventyConfig.addPlugin(RenderPlugin);
 	eleventyConfig.addPlugin(syntaxHighlight);
 	eleventyConfig.addPlugin(feedPlugin, {
 		type: "atom",
