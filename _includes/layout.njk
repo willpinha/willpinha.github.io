@@ -441,7 +441,7 @@
 		<header>
 			<div class="header-top">
 				<a class="title" href="/"><h1>{{ site.title }}</h1></a>
-				<small class="visitors" hidden>👁 <b>0</b> unique visitors</small>
+				<small class="visitors">👁 - unique visitors</small>
 			</div>
 			<nav>
 				<p>
@@ -461,18 +461,20 @@
 		</footer>
 		<script data-goatcounter="https://willpinha.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 		<script>
-			// Hidden by default because ad blockers often block GoatCounter, which would leave a dangling "0"
+			// Hidden on failure because ad blockers often block GoatCounter, which would leave "Loading..." forever
 			fetch("https://willpinha.goatcounter.com/counter/TOTAL.json")
 				.then((response) => {
 					if (!response.ok) throw new Error(`Counter returned ${response.status}`);
 					return response.json();
 				})
 				.then((data) => {
-					const visitors = document.querySelector(".visitors");
-					visitors.querySelector("b").textContent = data.count;
-					visitors.hidden = false;
+					const count = document.createElement("b");
+					count.textContent = data.count;
+					document.querySelector(".visitors").replaceChildren("👁 ", count, " unique visitors");
 				})
-				.catch(() => {});
+				.catch(() => {
+					document.querySelector(".visitors").hidden = true;
+				});
 		</script>
 	</body>
 </html>
