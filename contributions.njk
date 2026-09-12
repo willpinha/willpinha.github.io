@@ -21,7 +21,7 @@ pageTitle: Contributions
 			<text x="0" y="{{ label.y }}" class="contrib-label">{{ label.label }}</text>
 			{% endfor %}
 			{% for cell in github.contributions.cells %}
-			<rect x="{{ cell.x }}" y="{{ cell.y }}" width="9" height="9" rx="2" class="contrib-level-{{ cell.level }}">
+			<rect x="{{ cell.x }}" y="{{ cell.y }}" width="{{ github.contributions.rectSize }}" height="{{ github.contributions.rectSize }}" class="contrib-cell contrib-level-{{ cell.level }}">
 				<title>{{ cell.tooltip }}</title>
 			</rect>
 			{% endfor %}
