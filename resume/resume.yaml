@@ -1,8 +1,8 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.8/schema.json
 cv:
     name: Willian Pinheiro
-    headline: Mid-Level Software Engineer
-    location: São Paulo, Brazil
+    headline: Engenheiro de Software Pleno
+    location: São Paulo, Brasil
     email: willpinhaaa@gmail.com
     website: https://willpinha.github.io
     social_networks:
@@ -11,57 +11,61 @@ cv:
         - network: GitHub
           username: willpinha
     sections:
-        about:
+        Sobre:
             - >
-                Backend software developer with 3 years of experience, currently focused on high-scalability systems. Enjoys understanding the business processes behind the systems he builds, not just the technology, aiming to propose solutions together with the teams that improve the company's operation as a whole.
-        education:
-            - institution: University of São Paulo (USP)
-              area: Information Systems
-              degree: BS
+                Desenvolvedor de software backend com 3 anos de experiência, atualmente focado em sistemas de alta escalabilidade. Gosta de entender os processos de negócio por trás dos sistemas que desenvolve, não apenas a tecnologia, buscando propor, junto com as equipes, soluções que melhorem a operação da empresa como um todo.
+        Formação:
+            - institution: Universidade de São Paulo (USP)
+              area: Sistemas de Informação
+              degree: Bacharelado
               start_date: 2020-03
               end_date: 2025-05
-        experience:
+        Experiência:
             - company: Mercado Livre
-              position: Software Developer
+              position: Desenvolvedor de Software
               start_date: 2025-02
               end_date: present
               highlights:
-                  - Maintenance and evolution of the Warehouse Management System, working on the optimization of picking routes across more than 100 distribution centers
-                  - Systems that support millions of daily requests, maintaining high availability in a critical operation environment
-                  - Proposed and implemented observability tools to identify data inconsistencies between synchronized databases and monitor delays in critical processing flows
+                  - Manutenção e evolução do Warehouse Management System, atuando na otimização de rotas de picking em mais de 100 centros de distribuição
+                  - Sistemas que suportam milhões de requisições diárias, mantendo alta disponibilidade em um ambiente de operação crítica
+                  - Propôs e implementou ferramentas de observabilidade para identificar inconsistências de dados entre bancos sincronizados e monitorar atrasos em fluxos de processamento críticos
             - company: Círculo Militar de São Paulo
-              position: Systems Analyst
+              position: Analista de Sistemas
               start_date: 2024-02
               end_date: 2025-02
               highlights:
-                  - Collaborated on the development of the club's space booking system (courts, beauty salon, gyms) in C# and SQL Server, for internal and external use
-                  - Integration with a third-party turnstile access control system to monitor entry of members and employees
-                  - Independently developed the package management system, allowing front-desk registration and later pickup by members and employees
-        projects:
-            - name: "[willpinha.github.io](https://willpinha.github.io)"
+                  - Colaborou no desenvolvimento do sistema de reservas de espaços do clube (quadras, salão de beleza, academias) em C# e SQL Server, para uso interno e externo
+                  - Integração com sistema terceirizado de controle de acesso por catracas para monitorar a entrada de sócios e funcionários
+                  - Desenvolveu de forma independente o sistema de gestão de encomendas, permitindo o registro na recepção e a posterior retirada por sócios e funcionários
+        Projetos:
+            - name: "[Daisy Components](https://willpinha.github.io/daisy-components)"
               summary: >
-                  Personal website in Go that consumes the GitHub GraphQL API to showcase open source contributions
+
               highlights:
-                  - Static site generation from GitHub GraphQL API data
-                  - Automated tests and CI/CD pipeline for build and deploy
-        skills:
-            - label: Languages
-              details: Go, Java, C#, PHP, Python, TypeScript, SQL
-            - label: Databases
+                  -
+            - name: "[Mantine Themes](https://github.com/willpinha/mantine-themes)"
+              summary: >
+
+              highlights:
+                  -
+        Habilidades:
+            - label: Linguagens
+              details: TypeScript, JavaScript, Python, Java, Go, SQL
+            - label: Bancos de Dados
               details: MySQL, SQL Server, PostgreSQL
-            - label: Infrastructure
-              details: Docker, Kubernetes, Fury (Mercado Livre's IDP), messaging (queue/pub-sub), object storage
-            - label: Observability
+            - label: Infraestrutura
+              details: Docker, Kubernetes, Fury (IDP do Mercado Livre), mensageria (filas/pub-sub), object storage
+            - label: Observabilidade
               details: Grafana, Datadog, ClickHouse
-            - label: Spoken Languages
-              details: Portuguese (native), English (intermediate)
+            - label: Idiomas
+              details: Português (nativo), Espanhol (intermediário), Inglês (intermediário)
 design:
     theme: moderncv
     templates:
         footer: ""
         top_note: ""
 locale:
-    language: english
+    language: portuguese
 settings:
     current_date: today
     pdf_title: Willian Pinheiro
