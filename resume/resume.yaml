@@ -13,7 +13,7 @@ cv:
     sections:
         Sobre:
             - >
-                Desenvolvedor de software backend com 3 anos de experiência, atualmente focado em sistemas de alta escalabilidade. Gosta de entender os processos de negócio por trás dos sistemas que desenvolve, não apenas a tecnologia, buscando propor, junto com as equipes, soluções que melhorem a operação da empresa como um todo.
+                Engenheiro de software frontend com 3 anos de experiência. Gosta de entender os processos de negócio por trás dos sistemas que desenvolve, não apenas a tecnologia, buscando propor, junto com as equipes, soluções que melhorem a operação da empresa como um todo.
         Formação:
             - institution: Universidade de São Paulo (USP)
               area: Sistemas de Informação
@@ -34,7 +34,7 @@ cv:
               start_date: 2024-02
               end_date: 2025-02
               highlights:
-                  - Colaborou no desenvolvimento do sistema de reservas de espaços do clube (quadras, salão de beleza, academias) em C# e SQL Server, para uso interno e externo
+                  - Colaborou no desenvolvimento do sistema de reservas de espaços do clube (quadras, salão de beleza, academias) com React, C# e SQL Server, para uso interno e externo
                   - Integração com sistema terceirizado de controle de acesso por catracas para monitorar a entrada de sócios e funcionários
                   - Desenvolveu de forma independente o sistema de gestão de encomendas, permitindo o registro na recepção e a posterior retirada por sócios e funcionários
         Projetos:
@@ -51,7 +51,7 @@ cv:
                   - Gerador de temas em TypeScript baseado em HSL, com 11 temas prontos em modo claro e escuro
         Habilidades:
             - label: Linguagens
-              details: TypeScript, JavaScript, Python, Java, Go, SQL
+              details: TypeScript, JavaScript, Python, Java, C#, PHP, Go, SQL
             - label: Bancos de Dados
               details: MySQL, SQL Server, PostgreSQL
             - label: Infraestrutura
