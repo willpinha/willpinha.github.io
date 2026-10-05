@@ -62,6 +62,13 @@ cv:
               details: Português (nativo), Espanhol (intermediário), Inglês (intermediário)
 design:
     theme: moderncv
+    page:
+        top_margin: 0.4in
+        bottom_margin: 0.4in
+        left_margin: 0.5in
+        right_margin: 0.5in
+        show_footer: false
+        show_top_note: false
     templates:
         footer: ""
         top_note: ""
