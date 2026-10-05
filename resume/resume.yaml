@@ -40,7 +40,7 @@ cv:
         Projetos:
             - name: "[Daisy Components](https://willpinha.github.io/daisy-components)"
               summary: >
-                  Coleção open source de componentes de UI com DaisyUI e Tailwind CSS, prontos para copiar e colar
+                  Componentes de UI open source com DaisyUI e Tailwind CSS para copiar e colar
               highlights:
                   - Mais de 430 estrelas e 20 forks no GitHub, com contribuições da comunidade
                   - Mais de 60 componentes responsivos compatíveis com os 32 temas do DaisyUI, com site e playground em Astro e Svelte
@@ -48,8 +48,7 @@ cv:
               summary: >
                   Temas para a biblioteca Mantine (React) baseados em cores semânticas
               highlights:
-                  - Função em TypeScript que gera temas completos a partir de matiz e saturação HSL e de cores primária, secundária e terciária
-                  - 11 temas prontos com suporte a modo claro e escuro
+                  - Gerador de temas em TypeScript baseado em HSL, com 11 temas prontos em modo claro e escuro
         Habilidades:
             - label: Linguagens
               details: TypeScript, JavaScript, Python, Java, Go, SQL
